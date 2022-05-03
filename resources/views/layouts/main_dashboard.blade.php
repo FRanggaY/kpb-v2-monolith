@@ -14,11 +14,11 @@
 
     <footer class="main-footer">
       <div class="footer-left">
-        Copyright &copy; 2022 <div class="bullet"></div> Kebun Malam
+        Copyright &copy; 2022 <div class="bullet"></div>
       </div>
-      {{-- <div class="footer-right">
-        2.3.0
-      </div> --}}
+      <div class="footer-right">
+        v1.0.0
+      </div>
     </footer>
 
 </div>
