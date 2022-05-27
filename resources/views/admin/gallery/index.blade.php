@@ -105,7 +105,7 @@
                         </button>
                         @endif
                         @if($data->user_id == Auth::user()->id || Auth::user()->role == 'admin')
-                        <button class="btn btn-danger my-2 delete" data-id="{{ $data->slug }}" data-title="{{ $data->title }}">
+                        <button class="btn btn-danger my-2 delete" data-slug="{{ $data->slug }}" data-title="{{ $data->title }}">
                             <i class="fas fa-trash"></i>
                         </button>
                         @endif

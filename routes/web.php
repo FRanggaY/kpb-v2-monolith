@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/advertise/{slug}/delete', [App\Http\Controllers\admin\AdvertiseController::class, 'destroy']);
     Route::get('/dashboard/advertise/{slug}/edit', [App\Http\Controllers\admin\AdvertiseController::class, 'edit']);
 
+
     // Dashboard Gallery
     Route::get('/dashboard/gallery', [App\Http\Controllers\admin\GalleryController::class, 'index']);
     Route::post('/dashboard/gallery', [App\Http\Controllers\admin\GalleryController::class, 'store']);

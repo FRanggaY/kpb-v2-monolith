@@ -20,7 +20,6 @@ class AdvertiseController extends Controller
         request()->validate(
             [
                 'title' => 'required',
-
                 'image' => 'nullable|file|mimes:jpg,png,jpeg',
                 'link' => 'nullable'
         ]);
@@ -57,10 +56,7 @@ class AdvertiseController extends Controller
             return redirect('dashboard/advertise')->with('error', 'You are not authorized to access this page');
         }
     }
-    public function detail($slug){
-        $data = advertise::where('slug', $slug)->first();
-        return view('admin.advertise.detail', ['data' => $data]);
-    }
+
     public function update($id, Request $request){
         $data = advertise::findOrFail($id);
         request()->validate([
@@ -121,5 +117,10 @@ class AdvertiseController extends Controller
             'status' => $data->status
         ]);
         return redirect('dashboard/advertise')->with('success', 'advertise status has been updated');
+    }
+
+    public function detail($slug){
+        $data = advertise::where('slug', $slug)->first();
+        return view('admin.advertise.detail', ['data' => $data]);
     }
 }
