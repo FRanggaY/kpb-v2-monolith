@@ -64,7 +64,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Dashboard Advertise
     Route::get('/dashboard/advertise', [App\Http\Controllers\admin\AdvertiseController::class, 'index']);
     Route::post('/dashboard/advertise', [App\Http\Controllers\admin\AdvertiseController::class, 'store']);
-    Route::patch('/dashboard/advertise/{id}', [App\Http\Controllers\admin\AdvertiseController::class, 'update']);
+    Route::post('/dashboard/advertise/{id}', [App\Http\Controllers\admin\AdvertiseController::class, 'update']);
     Route::get('/dashboard/advertise/{slug}/detail', [App\Http\Controllers\admin\AdvertiseController::class, 'detail']);
     Route::get('/dashboard/advertise/{slug}/change-status', [App\Http\Controllers\admin\AdvertiseController::class, 'changeStatus']);
     Route::get('/dashboard/advertise/{slug}/delete', [App\Http\Controllers\admin\AdvertiseController::class, 'destroy']);
@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Dashboard Gallery
     Route::get('/dashboard/gallery', [App\Http\Controllers\admin\GalleryController::class, 'index']);
     Route::post('/dashboard/gallery', [App\Http\Controllers\admin\GalleryController::class, 'store']);
-    Route::patch('/dashboard/gallery/{id}', [App\Http\Controllers\admin\GalleryController::class, 'update']);
+    Route::post('/dashboard/gallery/{id}', [App\Http\Controllers\admin\GalleryController::class, 'update']);
     Route::get('/dashboard/gallery/{slug}/detail', [App\Http\Controllers\admin\GalleryController::class, 'detail']);
     Route::get('/dashboard/gallery/{slug}/change-status', [App\Http\Controllers\admin\GalleryController::class, 'changeStatus']);
     Route::get('/dashboard/gallery/{slug}/delete', [App\Http\Controllers\admin\GalleryController::class, 'destroy']);

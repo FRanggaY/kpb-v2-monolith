@@ -45,7 +45,7 @@
               </button>
             </div>
             <form method="post" class="advertise-form-edit" enctype="multipart/form-data">
-                {{ method_field('PATCH') }}
+                {{ method_field('POST') }}
                 {{ csrf_field() }}
                 <div class="modal-body">
 
@@ -176,13 +176,17 @@
         })
     });
 
-    $(".update").on('click', function() {
+    $(".update").on('click', function(e) {
+        e.preventDefault();
         var id = $('#myTabContent').find('#id_data').val();
-        let formData = $('.advertise-form-edit').serialize();
+        let formData = new FormData($('.advertise-form-edit')[0]);
+
         $.ajax({
                 url: `/dashboard/advertise/${id}`,
-                method: "PATCH",
+                method: "POST",
                 data: formData,
+                contentType: false,
+                processData: false,
                 success: function(data){
                     $('#modal-edit-advertise').modal('hide');
                     window.location.assign('/dashboard/advertise');

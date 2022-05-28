@@ -45,7 +45,7 @@
               </button>
             </div>
             <form method="post" class="gallery-form-edit" enctype="multipart/form-data">
-                {{ method_field('PATCH') }}
+                {{ method_field('POST') }}
                 {{ csrf_field() }}
                 <div class="modal-body">
 
@@ -174,13 +174,17 @@
         })
     });
 
-    $(".update").on('click', function() {
+    $(".update").on('click', function(e) {
+        e.preventDefault();
         var id = $('#myTabContent').find('#id_data').val();
-        let formData = $('.gallery-form-edit').serialize();
+        let formData = new FormData($('.gallery-form-edit')[0]);
+
         $.ajax({
                 url: `/dashboard/gallery/${id}`,
-                method: "PATCH",
+                method: "POST",
                 data: formData,
+                contentType: false,
+                processData: false,
                 success: function(data){
                     $('#modal-edit-gallery').modal('hide');
                     window.location.assign('/dashboard/gallery');
