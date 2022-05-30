@@ -8,7 +8,7 @@
 
     <div class="section-body">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-statistic-2">
                   <div class="card-stats">
                     <div class="card-stats-title">User Statistics
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-statistic-2">
                   <div class="card-stats">
                     <div class="card-stats-title">Gallery Statistics
@@ -68,10 +68,10 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-statistic-2">
                   <div class="card-stats">
-                    <div class="card-stats-title">Advertise Statistics
+                    <div class="card-stats-title">Advertise
                     </div>
                     <div class="card-stats-items">
                       <div class="card-stats-item">
@@ -91,14 +91,20 @@
                     <div class="card-header">
                       <h4>Total Advertise</h4>
                     </div>
-                    <div class="card-body">
-                        {{ $datas['advertise_total'] }}
+                    <div class="owl-carousel owl-theme" id="advertise-carousel">
+                        @foreach ($datas['advertise_data'] as $item)
+                        <div class="card">
+                            <img src="{{ $item->image  }}" class="card-img-top">
+                            <div class="card-body">
+                            <a href="{{ $item->link }}" target="_blank" class="btn btn-outline-primary">{{ $item->title }}</a>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
                   </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-12">
                 <div class="card">
                     <div class="card card-statistic-2 m-0">
                         <div class="card-icon shadow-primary bg-primary">
@@ -145,10 +151,34 @@
 
                     </div>
                 </div>
-              </div>
+            </div>
         </div>
 
         </div>
     </div>
   </section>
+@endsection
+@section('script')
+<script>
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            margin:50,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                480 : {
+                    items:2
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:3
+                }
+            }
+        });
+    });
+</script>
 @endsection

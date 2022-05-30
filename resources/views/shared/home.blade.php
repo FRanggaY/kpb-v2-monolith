@@ -319,20 +319,6 @@
                 @endforeach
             </div>
 
-        @else
-        <div class="owl-carousel owl-theme">
-            <div>
-                <article class="article">
-                    <div class="article-header">
-                        <div class="article-image" data-background="{{ asset($gallerydata->image) }}">
-                        </div>
-                        <div class="article-title">
-                        <h2><span>{{ $gallerydata->title }}</span></h2>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
         @endif
 
         <div class="hero align-items-center bg-success text-white my-5">

@@ -24,6 +24,7 @@ class DashboardController extends Controller
         // advertise
         $advertise_total = advertise::count();
         $advertise_active = advertise::where('status', 1)->count();
+        $advertise_data = advertise::where('status', 1)->orderBy('created_at')->limit(6)->get();
         $advertise_unactive = advertise::where('status', 0)->count();
 
         //activity
@@ -40,10 +41,10 @@ class DashboardController extends Controller
             'advertise_total' => $advertise_total,
             'advertise_active' => $advertise_active,
             'advertise_unactive' => $advertise_unactive,
+            'advertise_data' => $advertise_data,
             'activity_total' => $activity_total,
             'activity_today' => $activity_today,
         ];
-
 
         return view('admin.dashboard.index', ['datas' => $datas]);
     }

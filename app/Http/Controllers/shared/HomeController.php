@@ -23,7 +23,7 @@ class HomeController extends Controller
         $activity_active_tommorow = activity::where('date', $datetomorrow)->orderBy('created_at', 'DESC')->limit(4)->get();
 
         $advertise_active = advertise::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
-        $gallery_active = gallery::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
+        $gallery_active = gallery::where('status', 1)->orderBy('created_at', 'DESC')->limit(2)->get();
 
         $datas = [
             'user_active' => $user_active,
