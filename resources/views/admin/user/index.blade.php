@@ -77,6 +77,7 @@
                   <th>Name</th>
                   <th>Username</th>
                   <th>Created Date</th>
+                  <th>Work Unit</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -97,6 +98,7 @@
                     </td>
                     <td>{{ $data->username }}</td>
                     <td>{{ $data->created_at }}</td>
+                    <td>{{ $data->work_unit }}</td>
                     @switch($data->status)
                         @case(0)
                             <td>
